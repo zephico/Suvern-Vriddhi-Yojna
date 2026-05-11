@@ -17,6 +17,22 @@
     <title>Shuvaran Vridhhi</title>
   </head>
   <body>
+    <form
+      name="enquiry-form"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="enquiry-form" />
+      <input type="text" name="fullName" />
+      <input type="text" name="contactNumber" />
+      <input type="text" name="otpVerification" />
+      <input type="text" name="monthlyAmount" />
+      <input type="text" name="plan" />
+      <input type="text" name="consent" />
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

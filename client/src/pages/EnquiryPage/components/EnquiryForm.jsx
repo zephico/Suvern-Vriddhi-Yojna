@@ -141,17 +141,8 @@ export default function EnquiryForm({ enquiry }) {
     setStep('details')
   }
 
-  // NETLIFY FORM ENCODER
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) =>
-          encodeURIComponent(key) +
-          '=' +
-          encodeURIComponent(data[key])
-      )
-      .join('&')
-  }
+  const encode = (form) =>
+    new URLSearchParams(new FormData(form)).toString()
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -169,21 +160,15 @@ export default function EnquiryForm({ enquiry }) {
     if (!isValid) return
 
     try {
+      const form = e.currentTarget
+
       await fetch('/', {
         method: 'POST',
         headers: {
           'Content-Type':
             'application/x-www-form-urlencoded'
         },
-        body: encode({
-          'form-name': 'enquiry-form',
-          fullName: values.fullName,
-          contactNumber: values.contactNumber,
-          monthlyAmount:
-            values.monthlyAmount,
-          plan: values.plan,
-          consent: values.consent
-        })
+        body: encode(form)
       })
 
       alert('Form submitted successfully!')
@@ -223,24 +208,6 @@ export default function EnquiryForm({ enquiry }) {
           </p>
         </div>
 
-        {/* HIDDEN NETLIFY FORM */}
-        <form
-          name="enquiry-form"
-          data-netlify="true"
-          hidden
-        >
-          <input type="text" name="fullName" />
-          <input
-            type="text"
-            name="contactNumber"
-          />
-          <input
-            type="text"
-            name="monthlyAmount"
-          />
-          <input type="text" name="plan" />
-        </form>
-
         <form
           className="svy__form"
           name="enquiry-form"
@@ -254,6 +221,16 @@ export default function EnquiryForm({ enquiry }) {
             type="hidden"
             name="form-name"
             value="enquiry-form"
+          />
+          <input
+            type="hidden"
+            name="contactNumber"
+            value={values.contactNumber}
+          />
+          <input
+            type="hidden"
+            name="otpVerification"
+            value={values.otpVerification}
           />
 
           {/* SPAM PROTECTION */}
@@ -610,7 +587,9 @@ export default function EnquiryForm({ enquiry }) {
                 <input
                   className="svy__checkbox"
                   id={enquiry.consent.id}
+                  name="consent"
                   type="checkbox"
+                  value="agreed"
                   checked={values.consent}
                   onChange={(e) =>
                     setField(
