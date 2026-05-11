@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "brandName": "Shuvaran Vridhhi",
+    "brandFullName": "Shuvaran Vridhhi Yojna",
+    "year": "2024"
+  },
+  "topNav": {
+    "links": [
+      { "label": "Plans", "href": "#plans", "active": true },
+      { "label": "Calculator", "href": "#calculator" },
+      { "label": "Benefits", "href": "#benefits" },
+      { "label": "Dashboard", "href": "#dashboard" }
+    ],
+    "cta": { "label": "Start Investing", "href": "/enquiry" }
+  },
+  "hero": {
+    "kicker": "Institutional Grade Gold Assets",
+    "title": {
+      "before": "Preserve Your Legacy in ",
+      "highlight": "Pure Gold",
+      "after": "."
+    },
+    "subtitle": "Join an elite tier of investors building generational wealth through our disciplined 10+1 sovereign gold accumulation strategy. Secure, transparent, and refined.",
+    "primaryCta": { "label": "Open Your Yojna Account", "href": "/enquiry" },
+    "secondaryCta": { "label": "Request a Callback", "href": "/enquiry" },
+    "image": {
+      "src": "https://lh3.googleusercontent.com/aida/ADBb0uilcYBPFISxaIRKCFSPTQm8O0teWwB2SYVIvlqSMNKl6WYlvEGXduxP7pbkj1Yuae7quNZSqV2EWHj8dePdt7K-Mb9avpgdS5w9eSSpAn1XbnXMkzcuzUXpB23oOsrJnhFOgVGVRRDfW8A05YXr6JzbmpyAvditjEOA6Rx1tWFXpiImROEgoFFLcV47grmhgDgbmdWJ2VL279VEzXiWtd6rdV2wMzUa4KNC8FqG3uZfCpvQ8R0xMfkpCQxRdPD5KuAurSZIQqh2eOo",
+      "alt": "Refined gold bars stack"
+    }
+  },
+  "metrics": {
+    "id": "metrics",
+    "items": [
+      {
+        "label": "LIVE GOLD RATE (24K)",
+        "value": "₹7,420.50",
+        "delta": { "text": "+1.2%", "tone": "up" }
+      },
+      { "label": "ASSETS UNDER CARE", "value": "₹1,240 Cr+" },
+      { "label": "ACTIVE INVESTORS", "value": "45,000+" },
+      { "label": "TRUST SCORE", "value": "9.9/10" }
+    ]
+  },
+  "mechanism": {
+    "id": "plans",
+    "heading": "The Shuvaran 10+1 Mechanism",
+    "subheading": "A systematic approach to wealth creation where consistency is rewarded by institutional grace.",
+    "largeStep": {
+      "icon": "payments",
+      "title": "10 Monthly Contributions",
+      "description": "Invest fixed amounts for 10 consecutive months. Your funds are instantly converted to physical gold at real-time market rates, insulating you from currency depreciation.",
+      "image": {
+        "src": "https://lh3.googleusercontent.com/aida/ADBb0ujsXh-g6oWLl31c-b7JOMyVR6S474s1SrGOw-sGrxNunUrjnYQjsGim0LyGDfpiowzJJGRciQFaTtZTuANvN057JOJPMnWYWKmh2ekv9iEBZ-0rPvUngQpSBNvgcIRP6ZRz50Yqu-fuIH9L1lzISlJFkitVLwYkbEkBeP9tbvUUBtGZwS_fIVMnxSAcIr6bD1-Pw-IPU1SNF5EDel_Tsc0Lbt-93MiR_-xyPp6bECzEF8Yqm5Qh1ePPL6D6nafVfjPk5TeBGf5MxZ8",
+        "alt": "Professional investment desk"
+      }
+    },
+    "rewardStep": {
+      "icon": "workspace_premium",
+      "title": "+1 Month Bonus",
+      "description": "Upon completion of 10 months, Shuvaran Vridhhi contributes the 11th installment on your behalf. A 10% instant value boost to your legacy portfolio."
+    },
+    "details": [
+      {
+        "icon": "security",
+        "title": "Vaulted Security",
+        "description": "Every gram is stored in SEBI-regulated, Brinks-managed high-security vaults with full insurance coverage."
+      },
+      {
+        "icon": "currency_exchange",
+        "title": "Instant Liquidity",
+        "description": "Withdraw your accumulation as 24K physical gold coins or liquidate to cash at current market rates within 24 hours."
+      },
+      {
+        "icon": "verified",
+        "title": "Purity Guarantee",
+        "description": "We only deal in 99.9% fine gold, BIS Hallmarked and independently audited by global certification agencies."
+      }
+    ]
+  },
+  "security": {
+    "headingBadge": { "icon": "verified_user", "label": "CERTIFIED COMPLIANCE" },
+    "heading": "Fortified by Institutional Standards",
+    "description": "Our security protocols match global sovereign wealth funds. From encrypted digital ledgers to physical audits, your prosperity is guarded by the industry's most rigorous framework.",
+    "checks": [
+      "ISO 27001 Data Security Certified",
+      "SEBI Registered Custodial Services",
+      "Third-party Quarterly Physical Audits"
+    ],
+    "stats": [
+      { "value": "256-bit", "label": "ENCRYPTION" },
+      { "value": "100%", "label": "INSURED ASSETS" },
+      { "value": "0.0g", "label": "TRACKING ERROR" },
+      { "value": "24/7", "label": "SURVEILLANCE" }
+    ]
+  },
+  "enquiry": {
+    "id": "enquire",
+    "heading": "Enquire for Your Vridhhi",
+    "subheading": "A wealth advisor will help you structure your golden legacy.",
+    "fields": [
+      {
+        "type": "text",
+        "name": "fullName",
+        "label": "Full Name",
+        "placeholder": "John Doe"
+      },
+      {
+        "type": "tel",
+        "name": "contactNumber",
+        "label": "Contact Number",
+        "placeholder": "+91 00000 00000",
+        "auxButton": { "type": "button", "label": "Verify OTP" }
+      },
+      {
+        "type": "number",
+        "name": "monthlyAmount",
+        "label": "Monthly Installment Amount",
+        "placeholder": "₹ 5,000"
+      },
+      {
+        "type": "select",
+        "name": "plan",
+        "label": "Select Plan",
+        "options": ["10+1 Masterplan", "Standard Accumulation", "Institutional Gold"]
+      }
+    ],
+    "consent": {
+      "id": "consent",
+      "label": "By checking this, you agree to receive a call from our wealth management team regarding your gold investment journey."
+    },
+    "submit": { "label": "Request a Callback" }
+  },
+  "footer": {
+    "about": "© 2024 Shuvaran Vridhhi Yojna. Secure gold investments regulated by SEBI standards. ISO 27001 Certified.",
+    "links": [
+      { "label": "Privacy Policy", "href": "#" },
+      { "label": "Terms of Service", "href": "#" },
+      { "label": "Regulatory Disclosures", "href": "#" },
+      { "label": "Security Audit", "href": "#" }
+    ]
+  }
+}
+
