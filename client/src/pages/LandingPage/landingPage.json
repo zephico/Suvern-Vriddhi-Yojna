@@ -63,7 +63,7 @@
       {
         "icon": "security",
         "title": "Vaulted Security",
-        "description": "Every gram is stored in SEBI-regulated, Brinks-managed high-security vaults with full insurance coverage."
+        "description": "Every gram is stored in high-security vaults with full insurance coverage."
       },
       {
         "icon": "currency_exchange",
@@ -83,7 +83,7 @@
     "description": "Our security protocols match global sovereign wealth funds. From encrypted digital ledgers to physical audits, your prosperity is guarded by the industry's most rigorous framework.",
     "checks": [
       "ISO 27001 Data Security Certified",
-      "SEBI Registered Custodial Services",
+      "Secure custodial-grade storage",
       "Third-party Quarterly Physical Audits"
     ],
     "stats": [
@@ -108,8 +108,7 @@
         "type": "tel",
         "name": "contactNumber",
         "label": "Contact Number",
-        "placeholder": "+91 00000 00000",
-        "auxButton": { "type": "button", "label": "Verify OTP" }
+        "placeholder": "+91 00000 00000"
       },
       {
         "type": "number",
@@ -121,7 +120,7 @@
         "type": "select",
         "name": "plan",
         "label": "Select Plan",
-        "options": ["10+1 Masterplan", "Standard Accumulation", "Institutional Gold"]
+        "options": ["શુભારંભ યોજના (11+1)", "સમૃદ્ધિ યોજના (18+2)", "વિશ્વાસ યોજના (24+3)"]
       }
     ],
     "consent": {
@@ -131,7 +130,7 @@
     "submit": { "label": "Request a Callback" }
   },
   "footer": {
-    "about": "© 2024 Shuvaran Vridhhi Yojna. Secure gold investments regulated by SEBI standards. ISO 27001 Certified.",
+    "about": "© 2024 Shuvaran Vridhhi Yojna. Secure gold investments with ISO 27001 Certified data security practices.",
     "links": [
       { "label": "Privacy Policy", "href": "#" },
       { "label": "Terms of Service", "href": "#" },

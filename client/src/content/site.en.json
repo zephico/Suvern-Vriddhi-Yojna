@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "brandName": "Shuvaran Vridhhi",
+    "brandFullName": "Shuvaran Vridhhi Yojna",
+    "year": "2024"
+  },
+  "topNav": {
+    "links": [
+      { "key": "home", "label": "Home", "href": "/", "active": false },
+      { "key": "plans", "label": "Plans", "href": "/plans", "active": false },
+      { "key": "calculator", "label": "Calculator", "href": "/#calculator", "active": false },
+      { "key": "contact", "label": "ContactUs", "href": "/enquiry", "active": false }
+    ],
+    "cta": { "label": "Start Investing", "href": "/enquiry" },
+    "languageToggle": {
+      "ariaLabel": "Change language",
+      "labels": { "en": "English", "gu": "Gujarati" }
+    }
+  },
+  "mechanism": {
+    "id": "plans",
+    "heading": "Bonus + EMI Mechanism",
+    "subheading": "A systematic approach where consistency is rewarded with bonus months.",
+    "largeStep": {
+      "icon": "payments",
+      "title": "Monthly Contributions",
+      "description": "Pay your monthly installment on time for the selected tenure.",
+      "image": {
+        "src": "https://res.cloudinary.com/coffewithpratham/image/upload/v1778585192/Gemini_Generated_Image_hr7h9mhr7h9mhr7h_m2wwzc.png",
+        "alt": "Premium investment desk with gold bars, books, and professional setting"
+      }
+    },
+    "rewardStep": {
+      "icon": "workspace_premium",
+      "title": "Bonus Months",
+      "description": "On successful completion, you receive back your paid EMI equivalent plus bonus months as reward."
+    },
+    "details": [
+      {
+        "icon": "security",
+        "title": "Secure Process",
+        "description": "Clear terms and transparent process for every plan."
+      },
+      {
+        "icon": "schedule",
+        "title": "On-time Benefit",
+        "description": "Stay consistent and unlock the bonus benefit."
+      },
+      {
+        "icon": "verified",
+        "title": "Trusted Support",
+        "description": "Our team supports you through the full scheme."
+      }
+    ]
+  },
+  "home": {
+    "hero": {
+      "kicker": "Institutional Grade Gold Assets",
+      "title": {
+        "before": "Preserve Your Legacy in ",
+        "highlight": "Pure Gold",
+        "after": "."
+      },
+      "subtitle": "Join an elite tier of investors building generational wealth through our disciplined bonus-rewarded gold accumulation strategy. Secure, transparent, and refined.",
+      "primaryCta": { "label": "Open Your Yojna Account", "href": "/enquiry" },
+      "secondaryCta": { "label": "Request a Callback", "href": "/enquiry" },
+      "image": {
+        "src": "https://res.cloudinary.com/coffewithpratham/image/upload/v1778583898/Gemini_Generated_Image_ionzktionzktionz_fck4no.png",
+        "alt": "Premium gold bars stack on marble"
+      }
+    },
+    "calculator": {
+      "id": "calculator",
+      "kicker": "Calculator",
+      "heading": "Calculate your return after scheme completion",
+      "subheading": "Minimum monthly amount is ₹2,000.",
+      "inputLabel": "Enter amount (₹)",
+      "inputTitle": "Monthly EMI Amount",
+      "summaryTitle": "Return Summary",
+      "summaryFormula": "Total return = (months paid + bonus months) × monthly amount",
+      "minAmount": 2000,
+      "invalidMin": "Minimum amount is ₹2000."
+    },
+    "visitUs": {
+      "id": "visit-us",
+      "kicker": "Visit Us",
+      "heading": "Pradeep Jewellers, Nadiad",
+      "address": "Pradeep Jewellers, Santh Bazzar, Amdavadi Bazar, Road, Nadiad, Gujarat 387001",
+      "hours": "Hours: Mon–Sat: 10:00 AM — 8:00 PM | Sunday: Closed",
+      "phoneDisplay": "+91 91377 48980",
+      "phoneTel": "+919137748980",
+      "getDirections": "Get Directions",
+      "callNow": "Call Now"
+    }
+  },
+  "plans": {
+    "page": {
+      "kicker": "Choose your plan",
+      "heading": "Bonus-Rewarded EMI Plans",
+      "subheading": "Complete the EMI tenure and receive your paid EMI equivalent back, plus bonus month(s) as reward.",
+      "ctaPrefix": "Start with "
+    },
+    "items": [
+      {
+        "code": "11+1",
+        "name": "Shubharambh Yojana (11+1)",
+        "months": 11,
+        "bonusMonths": 1,
+        "icon": "workspace_premium",
+        "tagline": "A refined entry into disciplined investing."
+      },
+      {
+        "code": "18+2",
+        "name": "Samruddhi Yojana (18+2)",
+        "months": 18,
+        "bonusMonths": 2,
+        "icon": "trending_up",
+        "tagline": "Build consistency with a stronger reward."
+      },
+      {
+        "code": "24+3",
+        "name": "Vishwas Yojana (24+3)",
+        "months": 24,
+        "bonusMonths": 3,
+        "icon": "shield",
+        "tagline": "A long-horizon plan for maximum bonus."
+      }
+    ]
+  },
+  "enquiry": {
+    "id": "enquire",
+    "heading": "Enquire for Your Vridhhi",
+    "subheading": "A wealth advisor will help you structure your golden legacy.",
+    "fields": [
+      { "type": "text", "name": "fullName", "label": "Full Name", "placeholder": "John Doe" },
+      { "type": "tel", "name": "contactNumber", "label": "Contact Number", "placeholder": "+91 00000 00000" },
+      { "type": "number", "name": "monthlyAmount", "label": "Monthly Installment Amount", "placeholder": "₹ 5,000" },
+      { "type": "select", "name": "plan", "label": "Select Plan", "options": ["Select", "Shubharambh Yojana (11+1)", "Samruddhi Yojana (18+2)", "Vishwas Yojana (24+3)"] }
+    ],
+    "consent": {
+      "id": "consent",
+      "label": "By checking this, you agree to receive a call from our team regarding your investment journey."
+    },
+    "submit": { "label": "Request a Callback" },
+    "validation": {
+      "contactRequired": "Contact number is required.",
+      "contactTenDigits": "Enter a valid 10-digit mobile number.",
+      "contactIndian": "Enter a valid Indian mobile number (starts with 6-9).",
+      "nameRequired": "Full name is required.",
+      "nameMin": "Full name must be at least 3 characters.",
+      "nameInvalid": "Full name can contain only letters and spaces.",
+      "amountRequired": "Monthly amount is required.",
+      "amountInvalid": "Enter a valid monthly amount.",
+      "amountWhole": "Monthly amount must be a whole number.",
+      "amountMin": "Minimum monthly installment is ₹2000.",
+      "planRequired": "Please select a plan.",
+      "consentRequired": "You must agree to proceed."
+    }
+  },
+  "footer": {
+    "about": "© 2024 Shuvaran Vridhhi Yojna.",
+    "poweredBy": "Powered by Pradeep Jewellers",
+    "links": [
+      { "label": "Privacy Policy", "href": "#" },
+      { "label": "Terms of Service", "href": "#" }
+    ]
+  }
+}
+

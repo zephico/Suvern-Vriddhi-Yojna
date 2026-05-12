@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 export default function EnquiryForm({ enquiry }) {
-  const [step, setStep] = useState('phone') // 'phone' | 'otp' | 'details'
+  const MIN_MONTHLY_INSTALLMENT = 2000
+  const v = enquiry.validation ?? {}
 
   const [values, setValues] = useState(() => ({
     fullName: '',
     contactNumber: '',
     monthlyAmount: '',
     plan: '',
-    otpVerification: '',
     consent: false
   }))
 
@@ -35,29 +35,15 @@ export default function EnquiryForm({ enquiry }) {
       ? phoneDigitsRaw.slice(2)
       : phoneDigitsRaw
 
-  const otpDigits = (
-    values.otpVerification || ''
-  ).replace(/\D/g, '')
-
   const phoneError = (() => {
     if (!values.contactNumber.trim())
-      return 'Contact number is required.'
+      return v.contactRequired
 
     if (phoneDigits.length !== 10)
-      return 'Enter a valid 10-digit mobile number.'
+      return v.contactTenDigits
 
     if (!/^[6-9]\d{9}$/.test(phoneDigits))
-      return 'Enter a valid Indian mobile number (starts with 6-9).'
-
-    return null
-  })()
-
-  const otpError = (() => {
-    if (!values.otpVerification.trim())
-      return 'OTP is required.'
-
-    if (otpDigits.length !== 6)
-      return 'OTP must be exactly 6 digits.'
+      return v.contactIndian
 
     return null
   })()
@@ -65,59 +51,44 @@ export default function EnquiryForm({ enquiry }) {
   const errors = (() => {
     const e = {}
 
-    if (step === 'phone') {
-      if (phoneError)
-        e.contactNumber = phoneError
-
-      return e
-    }
-
-    if (step === 'otp') {
-      if (phoneError)
-        e.contactNumber = phoneError
-
-      if (otpError)
-        e.otpVerification = otpError
-
-      return e
-    }
+    if (phoneError) e.contactNumber = phoneError
 
     const name = values.fullName.trim()
 
     if (!name)
-      e.fullName = 'Full name is required.'
+      e.fullName = v.nameRequired
     else if (name.length < 3)
-      e.fullName =
-        'Full name must be at least 3 characters.'
+      e.fullName = v.nameMin
     else if (
-      !/^[A-Za-z][A-Za-z\s.'-]*$/.test(name)
+      !/^[\p{L}][\p{L}\s.'-]*$/u.test(name)
     )
-      e.fullName =
-        'Full name can contain only letters and spaces.'
+      e.fullName = v.nameInvalid
 
     if (
       values.monthlyAmount === '' ||
       values.monthlyAmount === null
     ) {
       e.monthlyAmount =
-        'Monthly amount is required.'
+        v.amountRequired
     } else {
       const amt = Number(values.monthlyAmount)
 
       if (!Number.isFinite(amt) || amt <= 0)
         e.monthlyAmount =
-          'Enter a valid monthly amount.'
+          v.amountInvalid
       else if (!Number.isInteger(amt))
         e.monthlyAmount =
-          'Monthly amount must be a whole number.'
+          v.amountWhole
+      else if (amt < MIN_MONTHLY_INSTALLMENT)
+        e.monthlyAmount = v.amountMin
     }
 
     if (!values.plan)
-      e.plan = 'Please select a plan.'
+      e.plan = v.planRequired
 
     if (!values.consent)
       e.consent =
-        'You must agree to proceed.'
+        v.consentRequired
 
     return e
   })()
@@ -125,32 +96,15 @@ export default function EnquiryForm({ enquiry }) {
   const isValid =
     Object.keys(errors).length === 0
 
-  const requestOtp = () => {
-    touch('contactNumber')
-
-    if (phoneError) return
-
-    setStep('otp')
-  }
-
-  const verifyOtp = () => {
-    touch('otpVerification')
-
-    if (otpError) return
-
-    setStep('details')
-  }
-
   const encode = (form) =>
     new URLSearchParams(new FormData(form)).toString()
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    if (step !== 'details') return
-
     setTouched((t) => ({
       ...t,
+      contactNumber: true,
       fullName: true,
       monthlyAmount: true,
       plan: true,
@@ -179,12 +133,10 @@ export default function EnquiryForm({ enquiry }) {
         contactNumber: '',
         monthlyAmount: '',
         plan: '',
-        otpVerification: '',
         consent: false
       })
 
       setTouched({})
-      setStep('phone')
     } catch (error) {
       console.error(error)
       alert('Something went wrong.')
@@ -227,11 +179,6 @@ export default function EnquiryForm({ enquiry }) {
             name="contactNumber"
             value={values.contactNumber}
           />
-          <input
-            type="hidden"
-            name="otpVerification"
-            value={values.otpVerification}
-          />
 
           {/* SPAM PROTECTION */}
           <p hidden>
@@ -241,175 +188,32 @@ export default function EnquiryForm({ enquiry }) {
             </label>
           </p>
 
-          {step === 'phone' ? (
-            <div className="svy__formGrid svy__formGrid--single">
+          <>
+            <div className="svy__formGrid">
               <div className="svy__field">
-                <label
-                  className="svy__label"
-                  htmlFor="contactNumber"
-                >
-                  {getField('contactNumber')
-                    ?.label ??
-                    'Contact Number'}
-                </label>
-
-                <div className="svy__inputRow">
-                  <input
-                    className="svy__input"
-                    id="contactNumber"
-                    name="contactNumber"
-                    type={
-                      getField('contactNumber')
-                        ?.type ?? 'tel'
-                    }
-                    placeholder={
-                      getField('contactNumber')
-                        ?.placeholder
-                    }
-                    value={
-                      values.contactNumber
-                    }
-                    onChange={(e) =>
-                      setField(
-                        'contactNumber',
-                        e.target.value
-                      )
-                    }
-                    onBlur={() =>
-                      touch('contactNumber')
-                    }
-                    aria-invalid={
-                      touched.contactNumber &&
-                        errors.contactNumber
-                        ? 'true'
-                        : 'false'
-                    }
-                  />
-
-                  <button
-                    className="svy__textButton"
-                    type="button"
-                    onClick={requestOtp}
-                  >
-                    {getField('contactNumber')
-                      ?.auxButton?.label ??
-                      'Verify OTP'}
-                  </button>
-                </div>
-
-                {touched.contactNumber &&
-                  errors.contactNumber ? (
-                  <p
-                    className="svy__fieldError"
-                    role="alert"
-                  >
-                    {errors.contactNumber}
-                  </p>
-                ) : null}
-              </div>
-            </div>
-          ) : step === 'otp' ? (
-            <div className="svy__formGrid svy__formGrid--single">
-              <div className="svy__field">
-                <label
-                  className="svy__label"
-                  htmlFor="contactNumber"
-                >
-                  {getField('contactNumber')
-                    ?.label ??
-                    'Contact Number'}
+                <label className="svy__label" htmlFor="contactNumber">
+                  {getField('contactNumber')?.label ?? 'Contact Number'}
                 </label>
 
                 <input
                   className="svy__input"
                   id="contactNumber"
                   name="contactNumber"
-                  type={
-                    getField('contactNumber')
-                      ?.type ?? 'tel'
-                  }
-                  value={
-                    values.contactNumber
-                  }
-                  readOnly
+                  type={getField('contactNumber')?.type ?? 'tel'}
+                  placeholder={getField('contactNumber')?.placeholder}
+                  value={values.contactNumber}
+                  onChange={(e) => setField('contactNumber', e.target.value)}
+                  onBlur={() => touch('contactNumber')}
+                  aria-invalid={touched.contactNumber && errors.contactNumber ? 'true' : 'false'}
                 />
-              </div>
 
-              <div className="svy__field">
-                <label
-                  className="svy__label"
-                  htmlFor="otpVerification"
-                >
-                  Enter OTP
-                </label>
-
-                <div className="svy__inputRow">
-                  <input
-                    className="svy__input"
-                    id="otpVerification"
-                    name="otpVerification"
-                    type="text"
-                    inputMode="numeric"
-                    placeholder="Enter 6 digit OTP"
-                    value={
-                      values.otpVerification
-                    }
-                    onChange={(e) =>
-                      setField(
-                        'otpVerification',
-                        e.target.value
-                      )
-                    }
-                    onBlur={() =>
-                      touch(
-                        'otpVerification'
-                      )
-                    }
-                    aria-invalid={
-                      touched.otpVerification &&
-                        errors.otpVerification
-                        ? 'true'
-                        : 'false'
-                    }
-                  />
-
-                  <button
-                    className="svy__textButton"
-                    type="button"
-                    onClick={verifyOtp}
-                  >
-                    Verify
-                  </button>
-                </div>
-
-                {touched.otpVerification &&
-                  errors.otpVerification ? (
-                  <p
-                    className="svy__fieldError"
-                    role="alert"
-                  >
-                    {errors.otpVerification}
+                {touched.contactNumber && errors.contactNumber ? (
+                  <p className="svy__fieldError" role="alert">
+                    {errors.contactNumber}
                   </p>
                 ) : null}
-
-                <button
-                  className="svy__textButton svy__textButton--link"
-                  type="button"
-                  onClick={() => {
-                    setField(
-                      'otpVerification',
-                      ''
-                    )
-                    setStep('phone')
-                  }}
-                >
-                  Change number
-                </button>
               </div>
-            </div>
-          ) : (
-            <>
-              <div className="svy__formGrid">
+
                 <div className="svy__field">
                   <label
                     className="svy__label"
@@ -480,6 +284,8 @@ export default function EnquiryForm({ enquiry }) {
                         'monthlyAmount'
                       )?.type ?? 'number'
                     }
+                    min={MIN_MONTHLY_INSTALLMENT}
+                    step={100}
                     placeholder={
                       getField(
                         'monthlyAmount'
@@ -635,8 +441,7 @@ export default function EnquiryForm({ enquiry }) {
               >
                 {enquiry.submit.label}
               </button>
-            </>
-          )}
+          </>
         </form>
       </div>
     </section>
