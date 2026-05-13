@@ -1,7 +1,7 @@
 {
   "meta": {
-    "brandName": "Shuvaran Vridhhi",
-    "brandFullName": "Shuvaran Vridhhi Yojna",
+    "brandName": "Suvarna Vridhhi",
+    "brandFullName": "Suvarna Vridhhi Yojna",
     "year": "2024"
   },
   "topNav": {
@@ -67,14 +67,14 @@
         "highlight": "Pure Gold",
         "after": "."
       },
-      "subtitle": "Watch the short film to see how Shuvaran Vridhhi works — disciplined monthly contributions, transparent terms, and bonus-rewarded gold accumulation at Pradeep Jewellers.",
+      "subtitle": "Watch the short film to see how Suvarna Vridhhi works — disciplined monthly contributions, transparent terms, and bonus-rewarded gold accumulation at Pradeep Jewellers.",
       "primaryCta": { "label": "Open Your Yojna Account", "href": "/enquiry" },
       "secondaryCta": { "label": "Request a Callback", "href": "/enquiry" },
-      "videoBadge": "Introductory film · Shuvaran Vridhhi Yojna",
+      "videoBadge": "Introductory film · Suvarna Vridhhi Yojna",
       "video": {
         "src": "https://res.cloudinary.com/coffewithpratham/video/upload/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.mp4",
         "poster": "https://res.cloudinary.com/coffewithpratham/video/upload/so_0,w_1400,c_fill,q_auto,f_jpg/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.jpg",
-        "ariaLabel": "Introductory video explaining the Shuvaran Vridhhi gold savings scheme"
+        "ariaLabel": "Introductory video explaining the Suvarna Vridhhi gold savings scheme"
       },
       "videoControls": {
         "toolbarAria": "Video playback controls",
@@ -96,6 +96,8 @@
       "summaryFormula": "Total return = (months paid + bonus months) × monthly amount",
       "minAmount": 2000,
       "invalidMin": "Minimum amount is ₹2000.",
+      "stepAmount": 1000,
+      "invalidStep": "Amount must be in multiples of ₹1000.",
       "sectionAria": "Calculator",
       "resultsAria": "Calculated results",
       "enteredAmountTemplate": "You entered: {amount} per month",
@@ -105,11 +107,11 @@
       "id": "faq",
       "kicker": "FAQ",
       "heading": "Questions we hear often",
-      "subheading": "Straight answers about Shuvaran Vridhhi. Visit Pradeep Jewellers or enquire for plan-specific details.",
+      "subheading": "Straight answers about Suvarna Vridhhi. Visit Pradeep Jewellers or enquire for plan-specific details.",
       "sectionAria": "Frequently asked questions",
       "items": [
         {
-          "question": "What is Shuvaran Vridhhi Yojna?",
+          "question": "What is Suvarna Vridhhi Yojna?",
           "answer": "It is a disciplined gold savings scheme at Pradeep Jewellers: you pay a fixed monthly installment for your chosen tenure. When you complete all payments on time, you receive back your total paid EMI amount plus bonus month(s) as per your plan — transparent terms explained at enrollment."
         },
         {
@@ -188,6 +190,7 @@
   "enquiry": {
     "id": "enquire",
     "minMonthlyInstallment": 2000,
+    "stepMonthlyInstallment": 1000,
     "sectionAria": "Enquiry form",
     "honeypotLabel": "Do not fill this out:",
     "submitSuccess": "Form submitted successfully!",
@@ -215,6 +218,7 @@
       "amountRequired": "Monthly amount is required.",
       "amountInvalid": "Enter a valid monthly amount.",
       "amountWhole": "Monthly amount must be a whole number.",
+      "amountStep": "Monthly amount must be in multiples of ₹1000.",
       "amountMin": "Minimum monthly installment is ₹2000.",
       "planRequired": "Please select a plan.",
       "consentRequired": "You must agree to proceed."
@@ -223,7 +227,7 @@
   "footer": {
     "ariaFooter": "Footer",
     "ariaFooterLinks": "Footer links",
-    "about": "© 2024 Shuvaran Vridhhi Yojna.",
+    "about": "© 2024 Suvarna Vridhhi Yojna.",
     "poweredBy": "Powered by Pradeep Jewellers",
     "links": [
       { "label": "Privacy Policy", "href": "/privacy" },

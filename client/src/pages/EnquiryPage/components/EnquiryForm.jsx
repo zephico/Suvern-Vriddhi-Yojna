@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export default function EnquiryForm({ enquiry }) {
   const MIN_MONTHLY_INSTALLMENT = enquiry.minMonthlyInstallment ?? 2000
+  const STEP_MONTHLY_INSTALLMENT = enquiry.stepMonthlyInstallment ?? 1000
   const v = enquiry.validation ?? {}
 
   const [values, setValues] = useState(() => ({
@@ -79,6 +80,9 @@ export default function EnquiryForm({ enquiry }) {
       else if (!Number.isInteger(amt))
         e.monthlyAmount =
           v.amountWhole
+      else if (amt % STEP_MONTHLY_INSTALLMENT !== 0)
+        e.monthlyAmount =
+          v.amountStep ?? `Amount must be in multiples of ₹${STEP_MONTHLY_INSTALLMENT}.`
       else if (amt < MIN_MONTHLY_INSTALLMENT)
         e.monthlyAmount = v.amountMin
     }
@@ -285,7 +289,7 @@ export default function EnquiryForm({ enquiry }) {
                       )?.type ?? 'number'
                     }
                     min={MIN_MONTHLY_INSTALLMENT}
-                    step={100}
+                    step={STEP_MONTHLY_INSTALLMENT}
                     placeholder={
                       getField(
                         'monthlyAmount'

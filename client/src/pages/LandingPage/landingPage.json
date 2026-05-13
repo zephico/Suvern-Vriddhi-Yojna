@@ -1,7 +1,7 @@
 {
   "meta": {
-    "brandName": "Shuvaran Vridhhi",
-    "brandFullName": "Shuvaran Vridhhi Yojna",
+    "brandName": "Suvarna Vridhhi",
+    "brandFullName": "Suvarna Vridhhi Yojna",
     "year": "2024"
   },
   "topNav": {
@@ -43,7 +43,7 @@
   },
   "mechanism": {
     "id": "plans",
-    "heading": "The Shuvaran 10+1 Mechanism",
+    "heading": "The Suvarna 10+1 Mechanism",
     "subheading": "A systematic approach to wealth creation where consistency is rewarded by institutional grace.",
     "largeStep": {
       "icon": "payments",
@@ -57,7 +57,7 @@
     "rewardStep": {
       "icon": "workspace_premium",
       "title": "+1 Month Bonus",
-      "description": "Upon completion of 10 months, Shuvaran Vridhhi contributes the 11th installment on your behalf. A 10% instant value boost to your legacy portfolio."
+      "description": "Upon completion of 10 months, Suvarna Vridhhi contributes the 11th installment on your behalf. A 10% instant value boost to your legacy portfolio."
     },
     "details": [
       {
@@ -130,7 +130,7 @@
     "submit": { "label": "Request a Callback" }
   },
   "footer": {
-    "about": "© 2024 Shuvaran Vridhhi Yojna. Secure gold investments with ISO 27001 Certified data security practices.",
+    "about": "© 2024 Suvarna Vridhhi Yojna. Secure gold investments with ISO 27001 Certified data security practices.",
     "links": [
       { "label": "Privacy Policy", "href": "#" },
       { "label": "Terms of Service", "href": "#" },

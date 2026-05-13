@@ -96,6 +96,8 @@
       "summaryFormula": "કુલ રિટર્ન = (ચૂકવેલા મહિના + બોનસ મહિના) × માસિક રકમ",
       "minAmount": 2000,
       "invalidMin": "ઓછામાં ઓછું રકમ ₹2000 છે.",
+      "stepAmount": 1000,
+      "invalidStep": "રકમ ₹1000 ના ગુણાકારમાં હોવી જોઈએ.",
       "sectionAria": "કેલ્ક્યુલેટર",
       "resultsAria": "ગણતરીના પરિણામો",
       "enteredAmountTemplate": "તમે દાખલ કર્યું: દર મહિને {amount}",
@@ -188,6 +190,7 @@
   "enquiry": {
     "id": "enquire",
     "minMonthlyInstallment": 2000,
+    "stepMonthlyInstallment": 1000,
     "sectionAria": "પૂછપરછ ફોર્મ",
     "honeypotLabel": "આ ખાનું ભરશો નહીં:",
     "submitSuccess": "ફોર્મ સફળતાપૂર્વક સબમિટ થયું!",
@@ -215,6 +218,7 @@
       "amountRequired": "માસિક રકમ જરૂરી છે.",
       "amountInvalid": "યોગ્ય માસિક રકમ દાખલ કરો.",
       "amountWhole": "માસિક રકમ પૂર્ણાંક હોવી જોઈએ.",
+      "amountStep": "માસિક રકમ ₹1000 ના ગુણાકારમાં હોવી જોઈએ.",
       "amountMin": "ઓછામાં ઓછું માસિક હપ્તું ₹2000 છે.",
       "planRequired": "કૃપા કરીને યોજના પસંદ કરો.",
       "consentRequired": "આગળ વધવા માટે સંમતિ જરૂરી છે."

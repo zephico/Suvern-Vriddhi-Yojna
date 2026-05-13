@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# If you deploy to a custom domain, update sitemap URL below.
+Sitemap: /sitemap.xml
+

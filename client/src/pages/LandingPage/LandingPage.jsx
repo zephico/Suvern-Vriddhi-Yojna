@@ -32,6 +32,25 @@ export default function LandingPage() {
       />
 
       <main className="svy__main">
+        <script
+          type="application/ld+json"
+          // JSON-LD can safely render in body for crawlers and rich results.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: content.meta.brandFullName,
+              url: '/',
+              telephone: content.home?.visitUs?.phoneTel,
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: content.home?.visitUs?.address,
+                addressRegion: 'Gujarat',
+                addressCountry: 'IN',
+              },
+            }),
+          }}
+        />
         <Hero hero={content.home.hero} />
         <Mechanism mechanism={{ ...content.mechanism, id: 'plans' }} />
         <CalculatorSection calculator={content.home.calculator} plans={content.plans.items} />

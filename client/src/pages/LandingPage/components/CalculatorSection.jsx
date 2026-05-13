@@ -17,10 +17,12 @@ export default function CalculatorSection({ calculator, plans }) {
   const locale = lang === 'gu' ? 'gu-IN' : 'en-IN'
 
   const minAmount = calculator?.minAmount ?? 2000
+  const stepAmount = calculator?.stepAmount ?? 1000
   const [amount, setAmount] = useState(minAmount)
 
   const parsedAmount = Number.isFinite(Number(amount)) ? Number(amount) : 0
-  const isValid = parsedAmount >= minAmount
+  const isValidMultiple = parsedAmount % stepAmount === 0
+  const isValid = parsedAmount >= minAmount && isValidMultiple
 
   const rows = useMemo(() => {
     const safeAmount = isValid ? parsedAmount : minAmount
@@ -67,7 +69,7 @@ export default function CalculatorSection({ calculator, plans }) {
                 className="svy__input"
                 type="number"
                 min={minAmount}
-                step={100}
+                step={stepAmount}
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder={`${minAmount}`}
@@ -76,7 +78,11 @@ export default function CalculatorSection({ calculator, plans }) {
             </label>
 
             {!isValid ? (
-              <p className="svy__fieldError">{calculator?.invalidMin ?? `Minimum amount is ₹${minAmount}.`}</p>
+              <p className="svy__fieldError">
+                {!isValidMultiple
+                  ? calculator?.invalidStep ?? `Amount must be in multiples of ₹${stepAmount}.`
+                  : calculator?.invalidMin ?? `Minimum amount is ₹${minAmount}.`}
+              </p>
             ) : (
               <p className="svy__muted svy__small svy__calcEnteredHint">{enteredHint}</p>
             )}

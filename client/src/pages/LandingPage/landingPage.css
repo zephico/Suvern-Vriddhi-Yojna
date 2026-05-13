@@ -355,6 +355,18 @@
   gap: 14px;
 }
 
+.svy__heroMedia--video .svy__heroVideoFrame {
+  /* Portrait WhatsApp video: prioritize height and avoid letterbox dominance. */
+  aspect-ratio: 9 / 16;
+  max-height: min(72svh, 720px);
+}
+
+.svy__heroMedia--video .svy__heroVideo {
+  /* Fill the portrait frame. (If you prefer no cropping, switch back to contain.) */
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
 .svy__glow {
   position: absolute;
   top: -28px;
@@ -433,37 +445,116 @@
   );
 }
 
-.svy__heroVideoToolbar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-.svy__heroVideoBtn {
-  font-family: 'Noto Serif', serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1;
-  padding: 10px 16px;
+.svy__heroVideoCenterPlay {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 78px;
+  height: 78px;
   border-radius: 999px;
-  cursor: pointer;
-  border: 1px solid rgba(28, 27, 27, 0.14);
-  background: rgba(255, 255, 255, 0.55);
-  color: var(--svy-on-surface);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(20, 18, 16, 0.55);
   backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 4;
   transition: transform 120ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
-.svy__heroVideoBtn:hover {
-  background: rgba(255, 255, 255, 0.75);
-  border-color: rgba(28, 27, 27, 0.22);
+.svy__heroVideoCenterPlay:hover {
+  transform: scale(1.03);
+  background: rgba(20, 18, 16, 0.68);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-.svy__heroVideoBtn:active {
+.svy__heroVideoCenterPlay:active {
   transform: scale(0.98);
+}
+
+.svy__heroVideoCenterPlayIcon {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 28px;
+  transform: translateX(2px);
+}
+
+.svy__heroVideoControls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 18, 16, 0.72) 100%);
+}
+
+.svy__heroVideoScrubRow {
+  display: flex;
+}
+
+.svy__heroVideoScrub {
+  width: 100%;
+  accent-color: var(--svy-primary-container);
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.svy__heroVideoControlRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.svy__heroVideoCtlBtn {
+  width: 38px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 120ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.svy__heroVideoCtlBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.svy__heroVideoCtlBtn:active {
+  transform: scale(0.98);
+}
+
+.svy__heroVideoTime {
+  font-family: 'Work Sans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.88);
+  white-space: nowrap;
+}
+
+.svy__heroVideoSpacer {
+  flex: 1;
+}
+
+.svy__heroVideoFrame:hover .svy__heroVideoControls {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svy__heroVideoCenterPlay,
+  .svy__heroVideoCtlBtn {
+    transition: none !important;
+  }
 }
 
 .svy__metrics {

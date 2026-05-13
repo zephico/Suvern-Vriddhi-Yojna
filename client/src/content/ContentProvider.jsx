@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 import en from './site.en.json'
 import gu from './site.gu.json'
@@ -16,6 +16,11 @@ function getInitialLang() {
 
 export function ContentProvider({ children }) {
   const [lang, setLang] = useState(getInitialLang)
+
+  useEffect(() => {
+    // Keep <html lang="..."> in sync for accessibility + SEO.
+    document.documentElement.lang = lang
+  }, [lang])
 
   const value = useMemo(() => {
     const base = lang === 'gu' ? gu : en
