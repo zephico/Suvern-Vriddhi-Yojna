@@ -138,6 +138,10 @@
       "phoneTel": "+919137748980",
       "getDirections": "દિશા મેળવો",
       "callNow": "હવે કોલ કરો",
+      "storeWebsite": {
+        "label": "દુકાનની વેબસાઇટ જુઓ",
+        "href": "https://pradeepjewellers.in/"
+      },
       "sectionAria": "અમને મુલાકાત લો",
       "gridAria": "દુકાનનું સ્થાન",
       "mapCardAria": "નકશાનું પૂર્વાવલોકન",
@@ -230,6 +234,7 @@
     "about": "© 2024 શુવરણ વૃદ્ધિ યોજના.",
     "poweredBy": "પ્રદીપ જ્વેલર્સ દ્વારા સંચાલિત",
     "links": [
+      { "label": "દુકાનની વેબસાઇટ", "href": "https://pradeepjewellers.in/" },
       { "label": "પ્રાઇવસી પોલિસી", "href": "/privacy" },
       { "label": "ઉપયોગની શરતો", "href": "/terms" }
     ]

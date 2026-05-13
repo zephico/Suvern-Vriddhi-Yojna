@@ -6,6 +6,7 @@ export default function VisitUsSection({ visitUs }) {
   const hours = visitUs?.hours ?? ''
   const phoneDisplay = visitUs?.phoneDisplay ?? ''
   const phoneTel = visitUs?.phoneTel ?? ''
+  const storeWebsite = visitUs?.storeWebsite
 
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
   // NOTE: Use "classic" embed URL; it's more reliably iframe-embeddable than /maps?q=... forms.
@@ -45,6 +46,11 @@ export default function VisitUsSection({ visitUs }) {
             <SmartLink className="svy__button svy__button--secondary" href={`tel:${phoneTel}`}>
               {visitUs?.callNow}
             </SmartLink>
+            {storeWebsite?.href ? (
+              <SmartLink className="svy__button svy__button--secondary" href={storeWebsite.href}>
+                {storeWebsite.label}
+              </SmartLink>
+            ) : null}
           </div>
         </div>
 

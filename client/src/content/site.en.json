@@ -138,6 +138,10 @@
       "phoneTel": "+919137748980",
       "getDirections": "Get Directions",
       "callNow": "Call Now",
+      "storeWebsite": {
+        "label": "Visit Store Website",
+        "href": "https://pradeepjewellers.in/"
+      },
       "sectionAria": "Visit us",
       "gridAria": "Store location",
       "mapCardAria": "Map preview",
@@ -230,6 +234,7 @@
     "about": "© 2024 Suvarna Vridhhi Yojna.",
     "poweredBy": "Powered by Pradeep Jewellers",
     "links": [
+      { "label": "Store Website", "href": "https://pradeepjewellers.in/" },
       { "label": "Privacy Policy", "href": "/privacy" },
       { "label": "Terms of Use", "href": "/terms" }
     ]
