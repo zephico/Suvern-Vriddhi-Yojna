@@ -4,7 +4,7 @@ import EnquiryForm from './components/EnquiryForm'
 import { useContent } from '../../content/ContentProvider.jsx'
 
 export default function EnquiryPage() {
-  const { lang, content, toggleLanguage } = useContent()
+  const { lang, content, setLanguage } = useContent()
 
   const topNav = {
     ...content.topNav,
@@ -17,9 +17,9 @@ export default function EnquiryPage() {
         meta={content.meta}
         topNav={topNav}
         languageToggle={{
-          ariaLabel: content.topNav.languageToggle.ariaLabel,
-          label: content.topNav.languageToggle.labels[lang],
-          onToggle: toggleLanguage,
+          ...content.topNav.languageToggle,
+          currentLang: lang,
+          onSelectLanguage: setLanguage,
         }}
       />
 

@@ -2,6 +2,8 @@ import { createContext, useContext, useMemo, useState } from 'react'
 
 import en from './site.en.json'
 import gu from './site.gu.json'
+import legalEn from './legal.en.json'
+import legalGu from './legal.gu.json'
 
 const STORAGE_KEY = 'svy_lang'
 
@@ -16,7 +18,9 @@ export function ContentProvider({ children }) {
   const [lang, setLang] = useState(getInitialLang)
 
   const value = useMemo(() => {
-    const content = lang === 'gu' ? gu : en
+    const base = lang === 'gu' ? gu : en
+    const legal = lang === 'gu' ? legalGu : legalEn
+    const content = { ...base, legal }
     const setLanguage = (next) => {
       setLang(next)
       try {

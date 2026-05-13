@@ -2,18 +2,21 @@ import TopNav from '../LandingPage/components/TopNav'
 import Footer from '../LandingPage/components/Footer'
 import { MaterialIcon, SmartLink } from '../LandingPage/components/shared'
 import { useContent } from '../../content/ContentProvider.jsx'
+import { interpolate } from '../../utils/interpolate.js'
 
-function formatMonthLabel(count) {
-  return `${count} month${count === 1 ? '' : 's'}`
+function monthWord(count, copy) {
+  return count === 1 ? copy.monthSingular : copy.monthPlural
 }
 
 export default function PlanPage() {
-  const { lang, content, toggleLanguage } = useContent()
+  const { lang, content, setLanguage } = useContent()
 
   const topNav = {
     ...content.topNav,
     links: content.topNav.links.map((l) => ({ ...l, active: l.key === 'plans' })),
   }
+
+  const copy = content.plans.page.copy ?? {}
 
   return (
     <div className="svy">
@@ -21,14 +24,14 @@ export default function PlanPage() {
         meta={content.meta}
         topNav={topNav}
         languageToggle={{
-          ariaLabel: content.topNav.languageToggle.ariaLabel,
-          label: content.topNav.languageToggle.labels[lang],
-          onToggle: toggleLanguage,
+          ...content.topNav.languageToggle,
+          currentLang: lang,
+          onSelectLanguage: setLanguage,
         }}
       />
 
       <main className="svy__main">
-        <section className="svy__bento" id="plans" aria-label="Plans">
+        <section className="svy__bento" id="plans" aria-label={copy.sectionAria ?? 'Plans'}>
           <header className="svy__sectionHeading">
             <p className="svy__kicker">{content.plans.page.kicker}</p>
             <h2 className="svy__h2">{content.plans.page.heading}</h2>
@@ -47,21 +50,32 @@ export default function PlanPage() {
                       </div>
                       <div>
                         <h3 className="svy__h3">{plan.name}</h3>
-                        <p className="svy__muted" style={{ marginTop: 6 }}>
-                          {plan.code} Plan • Pay {formatMonthLabel(plan.months)} EMI
+                        <p className="svy__muted svy__planSubtitle">
+                          {interpolate(copy.planSubtitle ?? '', {
+                            code: plan.code,
+                            months: plan.months,
+                            monthsLabel: monthWord(plan.months, copy),
+                          })}
                         </p>
                       </div>
                     </div>
 
-                    <div className="svy__cardText" style={{ marginTop: 14 }}>
-                      <p className="svy__muted" style={{ margin: 0 }}>
-                        {plan.tagline}
+                    <div className="svy__planCardText">
+                      <p className="svy__muted svy__planTagline">{plan.tagline}</p>
+                      <p className="svy__muted svy__planCompletion">
+                        {interpolate(copy.completionLine ?? '', {
+                          paidMonths: plan.months,
+                          paidMonthsLabel: monthWord(plan.months, copy),
+                          bonusMonths: plan.bonusMonths,
+                          bonusMonthsLabel: monthWord(plan.bonusMonths, copy),
+                        })}
                       </p>
-                      <p className="svy__muted" style={{ marginTop: 10 }}>
-                        On completion: you receive back {formatMonthLabel(plan.months)} EMI equivalent plus{' '}
-                        {formatMonthLabel(plan.bonusMonths)} bonus.
-                        <br />
-                        Total benefit: <strong>{formatMonthLabel(totalMonths)}</strong> EMI equivalent.
+                      <p className="svy__muted svy__planBenefit">
+                        {copy.totalBenefitBefore}
+                        <strong>
+                          {totalMonths} {monthWord(totalMonths, copy)}
+                        </strong>
+                        {copy.totalBenefitAfter}
                       </p>
                     </div>
                   </div>
@@ -83,4 +97,3 @@ export default function PlanPage() {
     </div>
   )
 }
-

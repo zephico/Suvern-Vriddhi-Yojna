@@ -2,12 +2,13 @@ import TopNav from './components/TopNav'
 import Hero from './components/Hero'
 import Mechanism from './components/Mechanism'
 import CalculatorSection from './components/CalculatorSection'
+import FaqSection from './components/FaqSection'
 import VisitUsSection from './components/VisitUsSection'
 import Footer from './components/Footer'
 import { useContent } from '../../content/ContentProvider.jsx'
 
 export default function LandingPage() {
-  const { lang, content, toggleLanguage } = useContent()
+  const { lang, content, setLanguage } = useContent()
 
   const topNav = {
     ...content.topNav,
@@ -24,9 +25,9 @@ export default function LandingPage() {
         meta={content.meta}
         topNav={topNav}
         languageToggle={{
-          ariaLabel: content.topNav.languageToggle.ariaLabel,
-          label: content.topNav.languageToggle.labels[lang],
-          onToggle: toggleLanguage,
+          ...content.topNav.languageToggle,
+          currentLang: lang,
+          onSelectLanguage: setLanguage,
         }}
       />
 
@@ -34,7 +35,9 @@ export default function LandingPage() {
         <Hero hero={content.home.hero} />
         <Mechanism mechanism={{ ...content.mechanism, id: 'plans' }} />
         <CalculatorSection calculator={content.home.calculator} plans={content.plans.items} />
+        
         <VisitUsSection visitUs={content.home.visitUs} />
+        <FaqSection faq={content.home.faq} />
       </main>
 
       <Footer meta={content.meta} footer={content.footer} />

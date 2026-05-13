@@ -1,8 +1,11 @@
 import { useMemo, useState } from 'react'
-import { MaterialIcon } from './shared'
 
-function formatINR(value) {
-  return new Intl.NumberFormat('en-IN', {
+import { MaterialIcon } from './shared'
+import { interpolate } from '../../../utils/interpolate.js'
+import { useContent } from '../../../content/ContentProvider.jsx'
+
+function formatINR(value, locale) {
+  return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'INR',
     maximumFractionDigits: 0,
@@ -10,6 +13,9 @@ function formatINR(value) {
 }
 
 export default function CalculatorSection({ calculator, plans }) {
+  const { lang } = useContent()
+  const locale = lang === 'gu' ? 'gu-IN' : 'en-IN'
+
   const minAmount = calculator?.minAmount ?? 2000
   const [amount, setAmount] = useState(minAmount)
 
@@ -26,8 +32,19 @@ export default function CalculatorSection({ calculator, plans }) {
     })
   }, [parsedAmount, isValid, minAmount, plans])
 
+  const enteredHint =
+    isValid && calculator?.enteredAmountTemplate
+      ? interpolate(calculator.enteredAmountTemplate, {
+          amount: formatINR(parsedAmount, locale),
+        })
+      : null
+
   return (
-    <section className="svy__bento" id={calculator?.id ?? 'calculator'} aria-label="Calculator">
+    <section
+      className="svy__bento"
+      id={calculator?.id ?? 'calculator'}
+      aria-label={calculator?.sectionAria ?? 'Calculator'}
+    >
       <header className="svy__sectionHeading">
         <p className="svy__kicker">{calculator?.kicker}</p>
         <h2 className="svy__h2">{calculator?.heading}</h2>
@@ -43,7 +60,7 @@ export default function CalculatorSection({ calculator, plans }) {
             <h3 className="svy__h3">{calculator?.inputTitle}</h3>
           </div>
 
-          <div className="svy__fieldStack" style={{ marginTop: 14 }}>
+          <div className="svy__fieldStack svy__fieldStack--calc">
             <label className="svy__field">
               <span className="svy__label">{calculator?.inputLabel}</span>
               <input
@@ -61,18 +78,17 @@ export default function CalculatorSection({ calculator, plans }) {
             {!isValid ? (
               <p className="svy__fieldError">{calculator?.invalidMin ?? `Minimum amount is ₹${minAmount}.`}</p>
             ) : (
-              <p className="svy__muted svy__small" style={{ margin: 0 }}>
-                You entered: <strong>{formatINR(parsedAmount)}</strong> per month
-              </p>
+              <p className="svy__muted svy__small svy__calcEnteredHint">{enteredHint}</p>
             )}
           </div>
         </div>
 
-        <div className="svy__card svy__card--tonal svy__calcResultsCard" aria-label="Calculated results">
+        <div
+          className="svy__card svy__card--tonal svy__calcResultsCard"
+          aria-label={calculator?.resultsAria ?? 'Calculated results'}
+        >
           <h3 className="svy__h3">{calculator?.summaryTitle}</h3>
-          <p className="svy__muted svy__small" style={{ marginTop: 8 }}>
-            {calculator?.summaryFormula}
-          </p>
+          <p className="svy__muted svy__small svy__calcFormula">{calculator?.summaryFormula}</p>
 
           <div className="svy__calcRows">
             {rows.map((r) => (
@@ -81,15 +97,20 @@ export default function CalculatorSection({ calculator, plans }) {
                   <MaterialIcon name={r.icon} className="svy__detailIcon" />
                   <div>
                     <div className="svy__calcPlanTitle">
-                      <span style={{ fontWeight: 800 }}>{r.name}</span>
+                      <span className="svy__calcPlanName">{r.name}</span>
                       <span className="svy__calcPill">{r.code}</span>
                     </div>
                     <div className="svy__muted svy__small">
-                      Paid: {formatINR(r.paid)} • Bonus: {formatINR(r.bonus)}
+                      {calculator?.rowPaidBonusTemplate
+                        ? interpolate(calculator.rowPaidBonusTemplate, {
+                            paid: formatINR(r.paid, locale),
+                            bonus: formatINR(r.bonus, locale),
+                          })
+                        : null}
                     </div>
                   </div>
                 </div>
-                <div className="svy__calcTotal">{formatINR(r.total)}</div>
+                <div className="svy__calcTotal">{formatINR(r.total, locale)}</div>
               </div>
             ))}
           </div>
@@ -98,4 +119,3 @@ export default function CalculatorSection({ calculator, plans }) {
     </section>
   )
 }
-

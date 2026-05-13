@@ -12,14 +12,18 @@ export default function VisitUsSection({ visitUs }) {
   const mapsEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=17&ie=UTF8&iwloc=&output=embed`
 
   return (
-    <section className="svy__bento" id={visitUs?.id ?? 'visit-us'} aria-label="Visit us">
+    <section
+      className="svy__bento"
+      id={visitUs?.id ?? 'visit-us'}
+      aria-label={visitUs?.sectionAria ?? 'Visit us'}
+    >
       <header className="svy__sectionHeading">
         <p className="svy__kicker">{visitUs?.kicker}</p>
         <h2 className="svy__h2">{heading}</h2>
         <p className="svy__muted">{address}</p>
       </header>
 
-      <div className="svy__visitGrid" aria-label="Store location widget">
+      <div className="svy__visitGrid" aria-label={visitUs?.gridAria ?? 'Store location'}>
         <div className="svy__card svy__card--tonal svy__visitInfoCard">
           <div className="svy__visitInfoRows">
             <div className="svy__visitInfoRow">
@@ -44,11 +48,14 @@ export default function VisitUsSection({ visitUs }) {
           </div>
         </div>
 
-        <div className="svy__card svy__card--tonal svy__visitMapCard" aria-label="Map preview">
+        <div
+          className="svy__card svy__card--tonal svy__visitMapCard"
+          aria-label={visitUs?.mapCardAria ?? 'Map preview'}
+        >
           <div className="svy__visitMapFrame">
             <iframe
               className="svy__visitMap"
-              title="Google map location"
+              title={visitUs?.mapIframeTitle ?? 'Store location map'}
               src={mapsEmbedSrc}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

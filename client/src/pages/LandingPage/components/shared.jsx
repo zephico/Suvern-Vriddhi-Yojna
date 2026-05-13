@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 
-export function MaterialIcon({ name, className }) {
+export function MaterialIcon({ name, className, ...props }) {
   return (
-    <span className={['material-symbols-outlined', className].filter(Boolean).join(' ')}>
+    <span
+      className={['material-symbols-outlined', className].filter(Boolean).join(' ')}
+      {...props}
+    >
       {name}
     </span>
   )

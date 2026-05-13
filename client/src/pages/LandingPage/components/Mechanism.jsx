@@ -2,7 +2,11 @@ import { MaterialIcon } from './shared'
 
 export default function Mechanism({ mechanism }) {
   return (
-    <section className="svy__bento" id={mechanism.id} aria-label="Mechanism">
+    <section
+      className="svy__bento"
+      id={mechanism.id}
+      aria-label={mechanism.sectionAria ?? 'Mechanism'}
+    >
       <div className="svy__sectionHeading">
         <h2 className="svy__h2">{mechanism.heading}</h2>
         <p className="svy__muted">{mechanism.subheading}</p>

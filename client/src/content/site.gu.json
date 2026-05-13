@@ -13,12 +13,18 @@
     ],
     "cta": { "label": "શરૂ કરો", "href": "/enquiry" },
     "languageToggle": {
-      "ariaLabel": "ભાષા બદલો",
-      "labels": { "en": "English", "gu": "ગુજરાતી" }
-    }
+      "groupAriaLabel": "વેબસાઇટ ભાષા — અંગ્રેજી અથવા ગુજરાતી પસંદ કરો",
+      "switchHint": "ભાષા",
+      "englishShort": "English",
+      "gujaratiShort": "ગુજરાતી",
+      "englishAria": "આ વેબસાઇટ અંગ્રેજીમાં બતાવો",
+      "gujaratiAria": "આ વેબસાઇટ ગુજરાતીમાં બતાવો"
+    },
+    "ariaPrimaryNav": "મુખ્ય નેવિગેશન"
   },
   "mechanism": {
     "id": "plans",
+    "sectionAria": "બોનસ અને EMI વિભાગ",
     "heading": "બોનસ + EMI મિકેનિઝમ",
     "subheading": "નિયમિતતા રાખો અને બોનસ લાભ મેળવો.",
     "largeStep": {
@@ -55,19 +61,29 @@
   },
   "home": {
     "hero": {
-      "kicker": "પ્રિમિયમ ગોલ્ડ યોજના",
+      "kicker": "યોજનાનો પરિચય વીડિયો",
       "title": {
         "before": "તમારો વારસો ",
         "highlight": "શુદ્ધ સોનામાં",
         "after": " સુરક્ષિત કરો."
       },
-      "subtitle": "નિયમિત EMI સાથે બોનસ લાભ મેળવો. પારદર્શક અને વિશ્વસનીય સોનાની બચત યોજના.",
+      "subtitle": "નાનકડો વીડિયો જુઓ — શુવરણ વૃદ્ધિ કેવી રીતે કામ કરે છે: નિયમિત હપ્તો, સ્પષ્ટ શરતો અને પ્રદીપ જ્વેલર્સ પર બોનસ સાથે સોનાની બચત.",
       "primaryCta": { "label": "યોજના માટે અરજી કરો", "href": "/enquiry" },
       "secondaryCta": { "label": "કોલબેક માંગો", "href": "/enquiry" },
-      "image": {
-        "src": "https://res.cloudinary.com/coffewithpratham/image/upload/v1778583898/Gemini_Generated_Image_ionzktionzktionz_fck4no.png",
-        "alt": "પ્રીમિયમ સોનાની ઈંટો"
-      }
+      "videoBadge": "પરિચય ફિલ્મ · શુવરણ વૃદ્ધિ યોજના",
+      "video": {
+        "src": "https://res.cloudinary.com/coffewithpratham/video/upload/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.mp4",
+        "poster": "https://res.cloudinary.com/coffewithpratham/video/upload/so_0,w_1400,c_fill,q_auto,f_jpg/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.jpg",
+        "ariaLabel": "શુવરણ વૃદ્ધિ સોનાની બચત યોજનાનો પરિચય વીડિયો"
+      },
+      "videoControls": {
+        "toolbarAria": "વીડિયો નિયંત્રણો",
+        "play": "ચલાવો",
+        "pause": "થોભાવો",
+        "mute": "અવાજ બંધ",
+        "unmute": "અવાજ ચાલુ"
+      },
+      "sectionAria": "હીરો વિભાગ"
     },
     "calculator": {
       "id": "calculator",
@@ -79,7 +95,36 @@
       "summaryTitle": "રિટર્ન સમરી",
       "summaryFormula": "કુલ રિટર્ન = (ચૂકવેલા મહિના + બોનસ મહિના) × માસિક રકમ",
       "minAmount": 2000,
-      "invalidMin": "ઓછામાં ઓછું રકમ ₹2000 છે."
+      "invalidMin": "ઓછામાં ઓછું રકમ ₹2000 છે.",
+      "sectionAria": "કેલ્ક્યુલેટર",
+      "resultsAria": "ગણતરીના પરિણામો",
+      "enteredAmountTemplate": "તમે દાખલ કર્યું: દર મહિને {amount}",
+      "rowPaidBonusTemplate": "ચૂકવેલું: {paid} • બોનસ: {bonus}"
+    },
+    "faq": {
+      "id": "faq",
+      "kicker": "FAQ",
+      "heading": "વારંવાર પૂછાતા પ્રશ્નો",
+      "subheading": "શુવરણ વૃદ્ધિ વિશે ટૂંકા જવાબો. યોજના વિગતો માટે પ્રદીપ જ્વેલર્સે મુલાકાત લો અથવા પૂછપરછ કરો.",
+      "sectionAria": "વારંવાર પૂછાતા પ્રશ્નો",
+      "items": [
+        {
+          "question": "શુવરણ વૃદ્ધિ યોજના શું છે?",
+          "answer": "આ પ્રદીપ જ્વેલર્સ પરની વ્યવસ્થિત સોનાની બચત યોજના છે: તમે પસંદ કરેલા સમયગાળા માટે નિશ્ચિત માસિક હપ્તો ભરો. નિયમિત સંપૂર્ણ ચુકવણી પછી તમને યોજના મુજબ કુલ ચૂકવેલ EMI અને બોનસ મહિના મળે છે — નોંધણી વખતે શરતો સ્પષ્ટ થાય છે."
+        },
+        {
+          "question": "ઓછામાં ઓછો માસિક હપ્તો કેટલો?",
+          "answer": "ઓછામાં ઓછી માસિક રકમ ₹2,000 છે. યોજના અને તમારી સુવિધા મુજબ વધુ રકમ પણ પસંદ કરી શકાય."
+        },
+        {
+          "question": "બોનસ મહિના કેવી રીતે કામ કરે છે?",
+          "answer": "દરેક યોજામાં બોનસ મહિના હોય છે (જેમ કે 11+1 અથવા 18+2). સંપૂર્ણ સમય સુધી નિયમિત ચુકવણી પછી રિટર્ન યોજના સૂત્ર પ્રમાણે: કુલ રિટર્ન = (ચૂકવેલા મહિના + બોનસ મહિના) × માસિક રકમ. અંદાજ માટે આ પેજ પરનો કેલ્ક્યુલેટર વાપરો."
+        },
+        {
+          "question": "નોંધણી અથવા મદદ ક્યાં મળે?",
+          "answer": "દુકાનના સમય દરમિયાન પ્રદીપ જ્વેલર્સ નડિયાદ પર આવો, ફોન કરો, અથવા પૂછપરછ ફોર્મ ભરો — અમારી ટીમ નોંધણી અને કાગળોમાં માર્ગદર્શન આપશે."
+        }
+      ]
     },
     "visitUs": {
       "id": "visit-us",
@@ -90,7 +135,11 @@
       "phoneDisplay": "+91 91377 48980",
       "phoneTel": "+919137748980",
       "getDirections": "દિશા મેળવો",
-      "callNow": "હવે કોલ કરો"
+      "callNow": "હવે કોલ કરો",
+      "sectionAria": "અમને મુલાકાત લો",
+      "gridAria": "દુકાનનું સ્થાન",
+      "mapCardAria": "નકશાનું પૂર્વાવલોકન",
+      "mapIframeTitle": "દુકાન સ્થાન નકશો"
     }
   },
   "plans": {
@@ -98,7 +147,16 @@
       "kicker": "તમારી યોજના પસંદ કરો",
       "heading": "બોનસ સાથે EMI યોજનાઓ",
       "subheading": "પૂર્ણ સમયગાળો પૂરો કરો અને ચૂકવેલી EMI જેટલું રિટર્ન + બોનસ મહિના મેળવો.",
-      "ctaPrefix": "શરૂ કરો: "
+      "ctaPrefix": "શરૂ કરો: ",
+      "copy": {
+        "monthSingular": "મહિનો",
+        "monthPlural": "મહિના",
+        "planSubtitle": "{code} યોજના • {months} {monthsLabel} EMI",
+        "completionLine": "પૂર્ણ થયા પછી: તમને પાછા {paidMonths} {paidMonthsLabel} EMI જેટલું અને વધારાના {bonusMonths} {bonusMonthsLabel} બોનસ મળે છે.",
+        "totalBenefitBefore": "કુલ લાભ: ",
+        "totalBenefitAfter": " EMI જેટલું.",
+        "sectionAria": "યોજનાઓ"
+      }
     },
     "items": [
       {
@@ -129,6 +187,11 @@
   },
   "enquiry": {
     "id": "enquire",
+    "minMonthlyInstallment": 2000,
+    "sectionAria": "પૂછપરછ ફોર્મ",
+    "honeypotLabel": "આ ખાનું ભરશો નહીં:",
+    "submitSuccess": "ફોર્મ સફળતાપૂર્વક સબમિટ થયું!",
+    "submitError": "કંઈક ખોટું થયું. ફરી પ્રયત્ન કરો.",
     "heading": "યોજના માટે પૂછપરછ",
     "subheading": "અમારો સલાહકાર તમને યોગ્ય યોજના પસંદ કરવામાં મદદ કરશે.",
     "fields": [
@@ -158,11 +221,13 @@
     }
   },
   "footer": {
+    "ariaFooter": "ફૂટર",
+    "ariaFooterLinks": "ફૂટર લિંક્સ",
     "about": "© 2024 શુવરણ વૃદ્ધિ યોજના.",
     "poweredBy": "પ્રદીપ જ્વેલર્સ દ્વારા સંચાલિત",
     "links": [
-      { "label": "પ્રાઇવસી પોલિસી", "href": "#" },
-      { "label": "શરતો અને નિયમો", "href": "#" }
+      { "label": "પ્રાઇવસી પોલિસી", "href": "/privacy" },
+      { "label": "ઉપયોગની શરતો", "href": "/terms" }
     ]
   }
 }

@@ -13,12 +13,18 @@
     ],
     "cta": { "label": "Start Investing", "href": "/enquiry" },
     "languageToggle": {
-      "ariaLabel": "Change language",
-      "labels": { "en": "English", "gu": "Gujarati" }
-    }
+      "groupAriaLabel": "Website language — choose English or Gujarati",
+      "switchHint": "Language",
+      "englishShort": "English",
+      "gujaratiShort": "ગુજરાતી",
+      "englishAria": "Show this website in English",
+      "gujaratiAria": "Show this website in Gujarati"
+    },
+    "ariaPrimaryNav": "Primary navigation"
   },
   "mechanism": {
     "id": "plans",
+    "sectionAria": "Bonus and EMI mechanism",
     "heading": "Bonus + EMI Mechanism",
     "subheading": "A systematic approach where consistency is rewarded with bonus months.",
     "largeStep": {
@@ -55,19 +61,29 @@
   },
   "home": {
     "hero": {
-      "kicker": "Institutional Grade Gold Assets",
+      "kicker": "Scheme introduction film",
       "title": {
         "before": "Preserve Your Legacy in ",
         "highlight": "Pure Gold",
         "after": "."
       },
-      "subtitle": "Join an elite tier of investors building generational wealth through our disciplined bonus-rewarded gold accumulation strategy. Secure, transparent, and refined.",
+      "subtitle": "Watch the short film to see how Shuvaran Vridhhi works — disciplined monthly contributions, transparent terms, and bonus-rewarded gold accumulation at Pradeep Jewellers.",
       "primaryCta": { "label": "Open Your Yojna Account", "href": "/enquiry" },
       "secondaryCta": { "label": "Request a Callback", "href": "/enquiry" },
-      "image": {
-        "src": "https://res.cloudinary.com/coffewithpratham/image/upload/v1778583898/Gemini_Generated_Image_ionzktionzktionz_fck4no.png",
-        "alt": "Premium gold bars stack on marble"
-      }
+      "videoBadge": "Introductory film · Shuvaran Vridhhi Yojna",
+      "video": {
+        "src": "https://res.cloudinary.com/coffewithpratham/video/upload/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.mp4",
+        "poster": "https://res.cloudinary.com/coffewithpratham/video/upload/so_0,w_1400,c_fill,q_auto,f_jpg/v1778651051/WhatsApp_Video_2026-05-12_at_17.05.59_yth9a9.jpg",
+        "ariaLabel": "Introductory video explaining the Shuvaran Vridhhi gold savings scheme"
+      },
+      "videoControls": {
+        "toolbarAria": "Video playback controls",
+        "play": "Play",
+        "pause": "Pause",
+        "mute": "Mute",
+        "unmute": "Unmute"
+      },
+      "sectionAria": "Hero"
     },
     "calculator": {
       "id": "calculator",
@@ -79,7 +95,36 @@
       "summaryTitle": "Return Summary",
       "summaryFormula": "Total return = (months paid + bonus months) × monthly amount",
       "minAmount": 2000,
-      "invalidMin": "Minimum amount is ₹2000."
+      "invalidMin": "Minimum amount is ₹2000.",
+      "sectionAria": "Calculator",
+      "resultsAria": "Calculated results",
+      "enteredAmountTemplate": "You entered: {amount} per month",
+      "rowPaidBonusTemplate": "Paid: {paid} • Bonus: {bonus}"
+    },
+    "faq": {
+      "id": "faq",
+      "kicker": "FAQ",
+      "heading": "Questions we hear often",
+      "subheading": "Straight answers about Shuvaran Vridhhi. Visit Pradeep Jewellers or enquire for plan-specific details.",
+      "sectionAria": "Frequently asked questions",
+      "items": [
+        {
+          "question": "What is Shuvaran Vridhhi Yojna?",
+          "answer": "It is a disciplined gold savings scheme at Pradeep Jewellers: you pay a fixed monthly installment for your chosen tenure. When you complete all payments on time, you receive back your total paid EMI amount plus bonus month(s) as per your plan — transparent terms explained at enrollment."
+        },
+        {
+          "question": "What is the minimum monthly installment?",
+          "answer": "The minimum monthly amount is ₹2,000. You can choose a higher installment based on the plan and your comfort."
+        },
+        {
+          "question": "How do bonus months work?",
+          "answer": "Each plan includes bonus month(s) (for example 11+1 or 18+2). After you successfully complete the full tenure with on-time payments, your return follows the scheme formula: total return equals (months paid + bonus months) × monthly amount. Use the calculator on this page to estimate."
+        },
+        {
+          "question": "Where can I enroll or get help?",
+          "answer": "You can visit Pradeep Jewellers in Nadiad during store hours, call us, or submit the enquiry form — our team will guide you through enrollment and documentation."
+        }
+      ]
     },
     "visitUs": {
       "id": "visit-us",
@@ -90,7 +135,11 @@
       "phoneDisplay": "+91 91377 48980",
       "phoneTel": "+919137748980",
       "getDirections": "Get Directions",
-      "callNow": "Call Now"
+      "callNow": "Call Now",
+      "sectionAria": "Visit us",
+      "gridAria": "Store location",
+      "mapCardAria": "Map preview",
+      "mapIframeTitle": "Store location map"
     }
   },
   "plans": {
@@ -98,7 +147,16 @@
       "kicker": "Choose your plan",
       "heading": "Bonus-Rewarded EMI Plans",
       "subheading": "Complete the EMI tenure and receive your paid EMI equivalent back, plus bonus month(s) as reward.",
-      "ctaPrefix": "Start with "
+      "ctaPrefix": "Start with ",
+      "copy": {
+        "monthSingular": "month",
+        "monthPlural": "months",
+        "planSubtitle": "{code} Plan • Pay {months} {monthsLabel} EMI",
+        "completionLine": "On completion: you receive back {paidMonths} {paidMonthsLabel} EMI equivalent plus {bonusMonths} {bonusMonthsLabel} bonus.",
+        "totalBenefitBefore": "Total benefit: ",
+        "totalBenefitAfter": " EMI equivalent.",
+        "sectionAria": "Plans"
+      }
     },
     "items": [
       {
@@ -129,6 +187,11 @@
   },
   "enquiry": {
     "id": "enquire",
+    "minMonthlyInstallment": 2000,
+    "sectionAria": "Enquiry form",
+    "honeypotLabel": "Do not fill this out:",
+    "submitSuccess": "Form submitted successfully!",
+    "submitError": "Something went wrong.",
     "heading": "Enquire for Your Vridhhi",
     "subheading": "A wealth advisor will help you structure your golden legacy.",
     "fields": [
@@ -158,11 +221,13 @@
     }
   },
   "footer": {
+    "ariaFooter": "Footer",
+    "ariaFooterLinks": "Footer links",
     "about": "© 2024 Shuvaran Vridhhi Yojna.",
     "poweredBy": "Powered by Pradeep Jewellers",
     "links": [
-      { "label": "Privacy Policy", "href": "#" },
-      { "label": "Terms of Service", "href": "#" }
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms of Use", "href": "/terms" }
     ]
   }
 }

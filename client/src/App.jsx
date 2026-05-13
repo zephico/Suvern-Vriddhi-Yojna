@@ -1,6 +1,8 @@
 import LandingPage from './pages/LandingPage/LandingPage.jsx'
 import EnquiryPage from './pages/EnquiryPage/EnquiryPage.jsx'
 import PlanPage from './pages/PlanPage/PlanPage.jsx'
+import PrivacyPage from './pages/LegalDocumentPage/PrivacyPage.jsx'
+import TermsPage from './pages/LegalDocumentPage/TermsPage.jsx'
 import { useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
@@ -33,6 +35,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/plans" element={<PlanPage />} />
         <Route path="/enquiry" element={<EnquiryPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

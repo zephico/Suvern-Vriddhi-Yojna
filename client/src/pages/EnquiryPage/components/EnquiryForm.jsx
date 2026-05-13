@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function EnquiryForm({ enquiry }) {
-  const MIN_MONTHLY_INSTALLMENT = 2000
+  const MIN_MONTHLY_INSTALLMENT = enquiry.minMonthlyInstallment ?? 2000
   const v = enquiry.validation ?? {}
 
   const [values, setValues] = useState(() => ({
@@ -125,7 +125,7 @@ export default function EnquiryForm({ enquiry }) {
         body: encode(form)
       })
 
-      alert('Form submitted successfully!')
+      alert(enquiry.submitSuccess ?? 'Form submitted successfully!')
 
       // RESET FORM
       setValues({
@@ -139,7 +139,7 @@ export default function EnquiryForm({ enquiry }) {
       setTouched({})
     } catch (error) {
       console.error(error)
-      alert('Something went wrong.')
+      alert(enquiry.submitError ?? 'Something went wrong.')
     }
   }
 
@@ -147,7 +147,7 @@ export default function EnquiryForm({ enquiry }) {
     <section
       className="svy__enquiry"
       id={enquiry.id}
-      aria-label="Enquiry form"
+      aria-label={enquiry.sectionAria ?? 'Enquiry form'}
     >
       <div className="svy__enquiryInner">
         <div className="svy__sectionHeading">
@@ -183,7 +183,7 @@ export default function EnquiryForm({ enquiry }) {
           {/* SPAM PROTECTION */}
           <p hidden>
             <label>
-              Don’t fill this out:
+              {enquiry.honeypotLabel ?? 'Do not fill this out:'}
               <input name="bot-field" />
             </label>
           </p>
