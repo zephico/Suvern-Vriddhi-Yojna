@@ -356,15 +356,14 @@
 }
 
 .svy__heroMedia--video .svy__heroVideoFrame {
-  /* Portrait WhatsApp video: prioritize height and avoid letterbox dominance. */
+  /* Portrait WhatsApp video: match frame to clip; height capped on large screens. */
   aspect-ratio: 9 / 16;
   max-height: min(72svh, 720px);
 }
 
 .svy__heroMedia--video .svy__heroVideo {
-  /* Fill the portrait frame. (If you prefer no cropping, switch back to contain.) */
-  object-fit: cover;
-  object-position: 50% 28%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .svy__glow {
